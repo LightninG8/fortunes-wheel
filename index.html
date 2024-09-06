@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="wheel">
+    <div class="wheel__container">
+      <div class="wheel__title">
+        <img class="wheel__img title-img" src="https://fs01.getcourse.ru/fileservice/file/download/a/176948/sc/497/h/403562e49b6d4d6411212b1aec659123.png" alt="">
+        <img class="wheel__img title-img-mob" src="https://fs23.getcourse.ru/fileservice/file/download/a/176948/sc/299/h/ecc219f8d363b9e4fc8e8c9bfb015512.png" alt="">
+      </div>
+      <div class="wheel__spinner-container">
+        <img class="wheel__img ticker-img" src="https://fs16.getcourse.ru/fileservice/file/download/a/176948/sc/91/h/b77a926e13672400fdab10018f9f038f.png" alt="">
+        <img class="lights-img" src="https://fs16.getcourse.ru/fileservice/file/download/a/176948/sc/104/h/795e9694b7a36d37f52a4a0e11062d5f.png" alt="">
+        <span class="wheel__spinner anim">
+          <img class="wheel__img wheel-img" src="./img/wheel.png" alt="">
+        </span>
+
+      </div>
+
+      <div class="wheel__buttons">
+        <div class="wheel__button wheel__button_no-spin hide">
+          <img class="wheel__img no-spin-img" src="https://fs22.getcourse.ru/fileservice/file/download/a/176948/sc/251/h/d69e618bdaf8d96401ae5ebf0912f436.png" alt="">
+        </div>
+        <div class="wheel__button wheel__button_spin">
+          <img class="wheel__img spin-img" src="https://fs20.getcourse.ru/fileservice/file/download/a/176948/sc/194/h/d6b7974ac278c9fa7c1a013efd432317.png" alt="">
+        </div>
+        <div class="wheel__button wheel__button_prize hide">
+          <img class="wheel__img prize-img" src="https://fs16.getcourse.ru/fileservice/file/download/a/176948/sc/249/h/45d1fc177b32dc38f1a8fd3d48d9481c.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="wheel__available-spins">
+      Доступно вращений:
+      <span class="available-spins">2</span>
+      <span class="deal-spins hide">4</span>
+    </div>
+    <audio src="https://fs01.getcourse.ru/fileservice/file/download/a/176948/sc/65/h/8913d21d6ae251b423d89ada59677669.mp3" class="hide" preload="auto"></audio>
+
+
+    <div class="wheel__popup popup hide">
+      <div class="popup__bg"></div>
+      <div class="popup__image-container">
+        <div class="popup__title">ВАШ ПРИЗ</div>
+        <div class="popup__text">Приз</div>
+        <div class="popup__prize popup-prize-1 hide">
+          <img src="https://fs01.getcourse.ru/fileservice/file/download/a/176948/sc/136/h/6905126bf18eb6a2d712d9c910d0c4f1.jpg" alt="" class="popup__image popup__image_desktop">
+          <img src="https://fs20.getcourse.ru/fileservice/file/download/a/176948/sc/184/h/124394e17f630ac1a23be21d69bd69dd.png" alt="" class="popup__image popup__image_mob">
+        </div>
+        <div class="popup__prize popup-prize-2 hide">
+          <img src="https://fs24.getcourse.ru/fileservice/file/download/a/176948/sc/5/h/232840b5c0484437b1ac536dc9d77199.jpg" alt="" class="popup__image popup__image_desktop">
+          <img src="https://fs02.getcourse.ru/fileservice/file/download/a/176948/sc/151/h/aa240df18f304a7c786a0ab9979823e7.png" alt="" class="popup__image popup__image_mob">
+        </div>
+        <div class="popup__prize popup-prize-3 hide">
+          <img src="https://fs01.getcourse.ru/fileservice/file/download/a/176948/sc/9/h/b82503482c2e18a534f637870746cc9b.jpg" alt="" class="popup__image popup__image_desktop">
+          <img src="https://fs19.getcourse.ru/fileservice/file/download/a/176948/sc/89/h/07550f028ad355143e7bc6170298adaf.png" alt="" class="popup__image popup__image_mob">
+        </div>
+        <div class="popup__prize popup-prize-4 hide">
+          <img src="https://fs16.getcourse.ru/fileservice/file/download/a/176948/sc/128/h/756031e3e2dcba5001ce906a1297da38.jpg" alt="" class="popup__image popup__image_desktop">
+          <img src="https://fs20.getcourse.ru/fileservice/file/download/a/176948/sc/201/h/fcbd5c39e46025b01676419c5dd96b6e.png" alt="" class="popup__image popup__image_mob">
+        </div>
+        <div class="popup__prize popup-prize-5 hide">
+          <img src="https://fs18.getcourse.ru/fileservice/file/download/a/176948/sc/321/h/b5b554ccb6f0934b5fed8cca30c2242a.jpg" alt="" class="popup__image popup__image_desktop">
+          <img src="https://fs23.getcourse.ru/fileservice/file/download/a/176948/sc/26/h/c556d00ff782073e64a892818ce89861.png" alt="" class="popup__image popup__image_mob">
+        </div>
+        <div class="popup__prize popup-prize-6 hide">
+          <img src="https://fs18.getcourse.ru/fileservice/file/download/a/176948/sc/11/h/639570d34935778a9a7b060bd6417a4d.jpg" alt="" class="popup__image popup__image_desktop">
+          <img src="https://fs01.getcourse.ru/fileservice/file/download/a/176948/sc/238/h/4f114906d163daa555ac98fc3edb09c4.png" alt="" class="popup__image popup__image_mob">
+        </div>
+        <div class="popup__prize popup-prize-7 hide">
+          <img src="https://fs19.getcourse.ru/fileservice/file/download/a/176948/sc/139/h/6bdee12c6246dd31980027dc3f6482c0.jpg" alt="" class="popup__image popup__image_desktop">
+          <img src="https://fs18.getcourse.ru/fileservice/file/download/a/176948/sc/132/h/f895554668c576dcae840f4f2659f17d.png" alt="" class="popup__image popup__image_mob">
+        </div>
+        <div class="popup__prize popup-prize-8 hide">
+          <img src="https://fs02.getcourse.ru/fileservice/file/download/a/176948/sc/12/h/8615de9313e817c63702bb409b918d75.jpg" alt="" class="popup__image popup__image_desktop">
+          <img src="https://fs24.getcourse.ru/fileservice/file/download/a/176948/sc/308/h/dcacf74f05767aebec5729f7d0f33579.png" alt="" class="popup__image popup__image_mob">
+        </div>
+      </div>
+      <div class="popup__close">
+        <img src="https://fs23.getcourse.ru/fileservice/file/download/a/176948/sc/38/h/1823112c1e13f9481536e3d41be2e44f.png" alt="" class="popup__image">
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
