@@ -3,35 +3,35 @@
   const prizes = [
     {
       text: "Укрепление гелем СРАЗУ 4 ногтей ",
-      dropChance: 1,
+      dropChance: 0,
     },
     {
       text: "Урок по ПРОДАЮЩИХ фото ногтей",
-      dropChance: 1,
+      dropChance: 0,
     },
     {
       text: "ИДЕАЛЬНЫЙ френч за 10 минут",
-      dropChance: 1,
+      dropChance: 0,
     },
     {
       text: "Наращивание БЕЗ форм",
-      dropChance: 1,
+      dropChance: 0,
     },
     {
       text: "СУПЕР ПРИЗ",
-      dropChance: 1,
+      dropChance: 0,
     },
     {
       text: "-----",
-      dropChance: 1,
+      dropChance: 0,
     },
     {
       text: "-----",
-      dropChance: 1,
+      dropChance: 0,
     },
     {
       text: "ЛЮБОЙ цветом за 10 минут",
-      dropChance: 1,
+      dropChance: 0,
     },
   ];
 
