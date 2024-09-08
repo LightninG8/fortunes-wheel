@@ -3,43 +3,35 @@
   const prizes = [
     {
       text: "Укрепление гелем СРАЗУ 4 ногтей ",
-      buttonSelector: ".prize-2 button",
-      dropChance: [0.01, 0, 0, 0.1, 0],
+      dropChance: 1,
     },
     {
       text: "Урок по ПРОДАЮЩИХ фото ногтей",
-      buttonSelector: ".prize-3 button",
-      dropChance: [0, 0, 0, 0, 0.5],
+      dropChance: 1,
     },
     {
       text: "ИДЕАЛЬНЫЙ френч за 10 минут",
-      buttonSelector: ".prize-4 button",
-      dropChance: [0, 0, 1, 0, 0.5],
+      dropChance: 1,
     },
     {
       text: "Наращивание БЕЗ форм",
-      buttonSelector: ".prize-5 button",
-      dropChance: [0, 0, 0, 0, 0],
+      dropChance: 1,
     },
     {
       text: "СУПЕР ПРИЗ",
-      buttonSelector: ".prize-6 button",
-      dropChance: [0, 1, 0, 0, 0],
+      dropChance: 1,
     },
     {
       text: "-----",
-      buttonSelector: ".prize-7 button",
-      dropChance: [0, 0, 0, 0, 0],
+      dropChance: 1,
     },
     {
       text: "-----",
-      buttonSelector: ".prize-7 button",
-      dropChance: [0, 0, 0, 0, 0],
+      dropChance: 1,
     },
     {
       text: "ЛЮБОЙ цветом за 10 минут",
-      buttonSelector: ".prize-1 button",
-      dropChance: [0.98, 0, 0, 0.85, 0],
+      dropChance: 1,
     },
   ];
 
@@ -57,9 +49,12 @@
   const popupBgElem = document.querySelector(".popup__bg");
 
   // ---------- Получение геткурс переменных пользователя ----------
-  // TODO: Убрать 10
-  let availableSpins = +availableSpinsElem.textContent || 0;
-  let dealSpins = +dealSpinsElem.textContent || 0;
+  // let availableSpins = +availableSpinsElem.textContent || 0;
+  // let dealSpins = +dealSpinsElem.textContent || 0;
+  const urlParams = new URLSearchParams(window.location.search);
+  let availableSpins = +urlParams.get("a") || 0;
+  let dealSpins = +urlParams.get("d") || 0;
+  let clientId = +urlParams.get("c") || 0;
 
   // ---------- Базовая настройка DOM элементов ----------
   // Выключаем ненужные кнопки
@@ -159,7 +154,7 @@
 
   function dropPrize(items) {
     const total = items.reduce(
-      (accumulator, item) => accumulator + item.dropChance[dealSpins % 5],
+      (accumulator, item) => accumulator + item.dropChance,
       0
     );
     const chance = lerp(0, total, Math.random());
@@ -170,12 +165,12 @@
 
       if (
         current <= chance &&
-        chance < current + item.dropChance[dealSpins % 5]
+        chance < current + item.dropChance
       ) {
         return i;
       }
 
-      current += item.dropChance[dealSpins % 5];
+      current += item.dropChance;
     }
 
     return current;
@@ -183,9 +178,6 @@
 
   // ---------- Геткурс функции ----------
   function showPrizePopup(index) {
-    // document
-    //   .querySelector(`.popup-prize-${index + 1}`)
-    //   ?.classList.remove("hide");
     document.querySelector(".popup__text").textContent = prizes[index].text;
     popupElem.classList.remove("hide");
     popupElem.classList.add("fade-in");
@@ -197,20 +189,6 @@
 
     availableSpinsElem.textContent = availableSpins;
     dealSpinsElem.textContent = dealSpins;
-
-    const formAvailableInput = document.querySelector(
-      ".available-spins-input input"
-    );
-    const formDealAvailableInput = document.querySelector(
-      ".deal-spins-input input"
-    );
-    const formButton = document.querySelector(".available-spins-button button");
-
-    if (formAvailableInput && formDealAvailableInput && formButton) {
-      formAvailableInput.value = availableSpins;
-      formDealAvailableInput.value = dealSpins;
-      formButton.click();
-    }
 
     if (availableSpins <= 0) {
       wheelSpinButtonElem.classList.add("hide");
@@ -249,7 +227,6 @@
       return;
     }
 
-    // TODO включить
     isSpinning = true;
 
     const angle = getElemRotationAngle(wheelSpinnerElem);
@@ -297,8 +274,17 @@
     // делаем кнопку снова активной
     isSpinning = false;
 
-    // отправляем форму получения подарка
-    document.querySelector(prizes[prizeIndex].buttonSelector)?.click();
+    // отправляем подарок в бота
+    fetch("https://chatter.salebot.pro/api/9c0729878299ab9db77dcd82e4d19fdd/callback",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          message: prizeIndex,
+          client_id: clientId
+        })
+      }
+    )
+ 
 
     // Показываем попап
     setTimeout(() => {
@@ -322,7 +308,7 @@
   }
 
   function onNoSpinButtonClick() {
-    document.querySelector(".no-spins-button button")?.click();
+    // document.querySelector(".no-spins-button button")?.click();
   }
   // ---------- Обработчики событий ----------
   // Начало анимации
@@ -335,14 +321,4 @@
   popupCloseElem.addEventListener("click", onClosePopup);
   popupBgElem.addEventListener("click", onClosePopup);
   wheelNoSpinButtonElem.addEventListener("click", onNoSpinButtonClick);
-
-  document.body.click();
-  setTimeout(() => {
-    doSound(
-      "https://fs20.getcourse.ru/fileservice/file/download/a/176948/sc/122/h/6c46ab64a978d7e608167c57b4ed5477.mp3",
-      0,
-      true,
-      0.1
-    );
-  }, 1000);
 })();
