@@ -279,7 +279,7 @@
       {
         method: "POST",
         body: JSON.stringify({
-          message: prizeIndex,
+          message: `${prizeIndex}`,
           client_id: clientId
         })
       }
