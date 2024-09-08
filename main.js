@@ -3,7 +3,7 @@
   const prizes = [
     {
       text: "Укрепление гелем СРАЗУ 4 ногтей ",
-      dropChance: 0,
+      dropChance: 1,
     },
     {
       text: "Урок по ПРОДАЮЩИХ фото ногтей",
