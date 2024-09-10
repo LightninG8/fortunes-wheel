@@ -48,7 +48,14 @@
   const popupCloseElem = document.querySelector(".popup__close");
   const popupBgElem = document.querySelector(".popup__bg");
 
-  // ---------- Получение геткурс переменных пользователя ----------
+  // ---------- TG WEB APP ----------
+  const tg = window.Telegram?.WebApp;
+
+  if (tg) {
+    tg.expand();
+  }
+
+  // ---------- Получение переменных пользователя ----------
   // let availableSpins = +availableSpinsElem.textContent || 0;
   // let dealSpins = +dealSpinsElem.textContent || 0;
   const urlParams = new URLSearchParams(window.location.search);
