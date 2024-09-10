@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 .hide {
   display: none !important;
 }
@@ -11,7 +18,8 @@ body {
 
 .wheel,
 .wheel * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /* Контейнер колеса */
@@ -23,10 +31,21 @@ body {
   background-size: cover;
   overflow: hidden;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .wheel__container {
@@ -34,8 +53,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 
+  display: -ms-grid;
+
   display: grid;
-  grid-template-areas:
+      grid-template-areas:
     "title wheel"
     "buttons wheel";
   grid-column-gap: 50px;
@@ -52,9 +73,12 @@ body {
 
 /* Заголовок */
 .wheel__title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: title;
   max-width: 475px;
-  align-self: end;
+  -ms-grid-row-align: end;
+      align-self: end;
 
   position: relative;
   z-index: 3;
@@ -62,13 +86,26 @@ body {
 
 /* Колесо */
 .wheel__spinner-container {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  display: -ms-grid;
   display: grid;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
   margin-top: 20px;
-  align-self: center;
+  -ms-grid-row-align: center;
+      align-self: center;
   grid-area: wheel;
+
+  -webkit-transition: 0.5s;
+
+  -o-transition: 0.5s;
 
   transition: 0.5s;
 }
@@ -90,25 +127,41 @@ body {
   /* height: 79.7%; */
   aspect-ratio: 1 / 1;
 
-  box-shadow: 0px 0px 41701.7px #000000, 0px 0px 23829.6px #b7954e,
+  -webkit-box-shadow: 0px 0px 41701.7px #000000, 0px 0px 23829.6px #b7954e,
+    0px 0px 13900.6px #b7954e, 0px 0px 6950.29px #b7954e,
+    0px 0px 1985.8px #b7954e, 0px 0px 992.898px #eebc70;
+
+          box-shadow: 0px 0px 41701.7px #000000, 0px 0px 23829.6px #b7954e,
     0px 0px 13900.6px #b7954e, 0px 0px 6950.29px #b7954e,
     0px 0px 1985.8px #b7954e, 0px 0px 992.898px #eebc70;
   border-radius: 50%;
 
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+
+      -ms-transform: translate(-50%, -50%);
+
+          transform: translate(-50%, -50%);
 }
 
 .wheel__spinner {
-  transform: rotate(calc(var(--rotate, 0) * 1deg));
+  -webkit-transform: rotate(calc(var(--rotate, 0) * 1deg));
+      -ms-transform: rotate(calc(var(--rotate, 0) * 1deg));
+          transform: rotate(calc(var(--rotate, 0) * 1deg));
   z-index: 1;
 }
 
 .is-spinning .wheel__spinner {
+  -webkit-transition: -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transition: -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  -o-transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
   transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1), -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
 }
 
 /* Кнопки */
 .wheel__buttons {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
   position: relative;
   z-index: 3;
 
@@ -131,7 +184,9 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .title-img {
@@ -155,7 +210,11 @@ body {
 }
 
 .is-spinning .wheel-img {
+  -webkit-transition: -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transition: -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  -o-transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
   transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1);
+  transition: transform 8s cubic-bezier(0.1, -0.01, 0, 1), -webkit-transform 8s cubic-bezier(0.1, -0.01, 0, 1);
 }
 
 .wheel-img {
@@ -194,9 +253,15 @@ body {
 /* Попап */
 .wheel__popup {
   position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   top: 0;
   left: 0;
   right: 0;
@@ -220,7 +285,9 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .popup__image {
@@ -253,11 +320,20 @@ body {
   width: 300px;
   height: 200px;
   background: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 20px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-family: "Arial";
 }
 
@@ -271,12 +347,17 @@ body {
     padding-top: 50px;
     padding-bottom: 50px;
     max-width: 700px;
-    grid-template-areas: none;
+        grid-template-areas: none;
+    -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
     grid-gap: 10px;
 
+    -ms-grid-rows: auto 10px auto 10px auto;
+
     grid-template-rows: auto auto auto;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     justify-items: center;
   }
 
@@ -294,8 +375,13 @@ body {
   }
 
   .wheel {
-    flex-direction: row;
-    align-items: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: normal;
+        -ms-flex-align: normal;
+            align-items: normal;
   }
 
   .wheel__spinner-container {
@@ -319,21 +405,55 @@ body {
 }
 
 /* Анимации */
-@keyframes spinRight {
+@-webkit-keyframes spinRight {
   from {
-    transform: rotate(0);
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
   }
   to {
-    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes spinRight {
+  from {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spinLeft {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(-360deg);
+            transform: translate(-50%, -50%) rotate(-360deg);
   }
 }
 
 @keyframes spinLeft {
   from {
-    transform: translate(-50%, -50%) rotate(0);
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
   }
   to {
-    transform: translate(-50%, -50%) rotate(-360deg);
+    -webkit-transform: translate(-50%, -50%) rotate(-360deg);
+            transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -346,6 +466,15 @@ body {
   }
 }
 
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -355,47 +484,124 @@ body {
   }
 }
 
-@keyframes fadeInDown {
+@-webkit-keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-70px) scale(0.9);
+    -webkit-transform: translateY(-70px) scale(0.9);
+            transform: translateY(-70px) scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateY(0px) scale(1);
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(-70px) scale(0.9);
+            transform: translateY(-70px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+  }
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(70px) scale(0.9);
+            transform: translateY(70px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
   }
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(70px) scale(0.9);
+    -webkit-transform: translateY(70px) scale(0.9);
+            transform: translateY(70px) scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateY(0px) scale(1);
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+  }
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(70px) scale(0.9);
+            transform: translateX(70px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0px) scale(1);
+            transform: translateX(0px) scale(1);
   }
 }
 
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(70px) scale(0.9);
+    -webkit-transform: translateX(70px) scale(0.9);
+            transform: translateX(70px) scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateX(0px) scale(1);
+    -webkit-transform: translateX(0px) scale(1);
+            transform: translateX(0px) scale(1);
+  }
+}
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translateX(-70px) scale(0.9);
+            transform: translateX(-70px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1);
   }
 }
 
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(-70px) scale(0.9);
+    -webkit-transform: translateX(-70px) scale(0.9);
+            transform: translateX(-70px) scale(0.9);
   }
   to {
     opacity: 1;
-    transform: translateX(0) scale(1);
+    -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1);
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+
+    -webkit-transform: translateY(0px) scale(1);
+
+            transform: translateY(0px) scale(1);
+  }
+  to {
+    opacity: 0;
+
+    -webkit-transform: translateY(-70px) scale(0.9);
+
+            transform: translateY(-70px) scale(0.9);
   }
 }
 
@@ -403,12 +609,33 @@ body {
   from {
     opacity: 1;
 
-    transform: translateY(0px) scale(1);
+    -webkit-transform: translateY(0px) scale(1);
+
+            transform: translateY(0px) scale(1);
   }
   to {
     opacity: 0;
 
-    transform: translateY(-70px) scale(0.9);
+    -webkit-transform: translateY(-70px) scale(0.9);
+
+            transform: translateY(-70px) scale(0.9);
+  }
+}
+
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+
+    -webkit-transform: translateY(0px) scale(1);
+
+            transform: translateY(0px) scale(1);
+  }
+  to {
+    opacity: 0;
+
+    -webkit-transform: translateY(70px) scale(0.9);
+
+            transform: translateY(70px) scale(0.9);
   }
 }
 
@@ -416,12 +643,33 @@ body {
   from {
     opacity: 1;
 
-    transform: translateY(0px) scale(1);
+    -webkit-transform: translateY(0px) scale(1);
+
+            transform: translateY(0px) scale(1);
   }
   to {
     opacity: 0;
 
-    transform: translateY(70px) scale(0.9);
+    -webkit-transform: translateY(70px) scale(0.9);
+
+            transform: translateY(70px) scale(0.9);
+  }
+}
+
+@-webkit-keyframes fadeOutLeft {
+  from {
+    opacity: 1;
+
+    -webkit-transform: translateX(0px) scale(1);
+
+            transform: translateX(0px) scale(1);
+  }
+  to {
+    opacity: 0;
+
+    -webkit-transform: translateX(70px) scale(0.9);
+
+            transform: translateX(70px) scale(0.9);
   }
 }
 
@@ -429,12 +677,16 @@ body {
   from {
     opacity: 1;
 
-    transform: translateX(0px) scale(1);
+    -webkit-transform: translateX(0px) scale(1);
+
+            transform: translateX(0px) scale(1);
   }
   to {
     opacity: 0;
 
-    transform: translateX(70px) scale(0.9);
+    -webkit-transform: translateX(70px) scale(0.9);
+
+            transform: translateX(70px) scale(0.9);
   }
 }
 
@@ -442,71 +694,91 @@ body {
   from {
     opacity: 1;
 
-    transform: translateX(0px) scale(1);
+    -webkit-transform: translateX(0px) scale(1);
+
+            transform: translateX(0px) scale(1);
   }
   to {
     opacity: 0;
 
-    transform: translateX(-70px) scale(0.9);
+    -webkit-transform: translateX(-70px) scale(0.9);
+
+            transform: translateX(-70px) scale(0.9);
   }
 }
 
 /* Стартовые анимации */
 .lights-img {
-  animation: spinLeft 30s linear infinite;
+  -webkit-animation: spinLeft 30s linear infinite;
+          animation: spinLeft 30s linear infinite;
 }
 
 .wheel__spinner.anim {
-  animation: spinRight 40s linear infinite;
+  -webkit-animation: spinRight 40s linear infinite;
+          animation: spinRight 40s linear infinite;
 }
 
 .wheel__title {
-  animation: fadeInRight 1s forwards;
+  -webkit-animation: fadeInRight 1s forwards;
+          animation: fadeInRight 1s forwards;
 }
 
 .wheel__buttons {
-  animation: fadeInRight 1s forwards;
+  -webkit-animation: fadeInRight 1s forwards;
+          animation: fadeInRight 1s forwards;
 }
 
 body.hide-controls .wheel__title {
-  animation: fadeOutLeft 0.8s forwards;
+  -webkit-animation: fadeOutLeft 0.8s forwards;
+          animation: fadeOutLeft 0.8s forwards;
 }
 
 body.hide-controls .wheel__buttons {
-  animation: fadeOutLeft 0.8s forwards;
+  -webkit-animation: fadeOutLeft 0.8s forwards;
+          animation: fadeOutLeft 0.8s forwards;
 }
 
 body.is-spinning .wheel__spinner-container {
-  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .popup.fade-in {
-  animation: fadeIn 0.3s forwards;
+  -webkit-animation: fadeIn 0.3s forwards;
+          animation: fadeIn 0.3s forwards;
 }
 
 .popup.fade-out {
-  animation: fadeOut 0.3s forwards;
+  -webkit-animation: fadeOut 0.3s forwards;
+          animation: fadeOut 0.3s forwards;
 }
 
 @media screen and (max-width: 1200px) {
   .wheel__title {
-    animation: fadeInDown 1s forwards;
+    -webkit-animation: fadeInDown 1s forwards;
+            animation: fadeInDown 1s forwards;
   }
 
   .wheel__buttons {
-    animation: fadeInUp 1s forwards;
+    -webkit-animation: fadeInUp 1s forwards;
+            animation: fadeInUp 1s forwards;
   }
 
   body.hide-controls .wheel__title {
-    animation: fadeOutUp 0.8s forwards;
+    -webkit-animation: fadeOutUp 0.8s forwards;
+            animation: fadeOutUp 0.8s forwards;
   }
 
   body.hide-controls .wheel__buttons {
-    animation: fadeOutDown 0.8s forwards;
+    -webkit-animation: fadeOutDown 0.8s forwards;
+            animation: fadeOutDown 0.8s forwards;
   }
 
   body.is-spinning .wheel__spinner-container {
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
   }
 
   .popup__prize {
