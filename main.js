@@ -2,36 +2,36 @@
   // список призов
   const prizes = [
     {
-      text: "Укрепление гелем СРАЗУ 4 ногтей ",
-      dropChance: 1,
+      text: "ЛЮБОЙ цвет за 10 минут",
+      dropChance: 0.235,
     },
     {
-      text: "Урок по ПРОДАЮЩИХ фото ногтей",
+      text: "50 000₽",
       dropChance: 0,
     },
     {
-      text: "ИДЕАЛЬНЫЙ френч за 10 минут",
+      text: "Укрепление гелем СРАЗУ 4 ногтей",
+      dropChance: 0.235,
+    },
+    {
+      text: "Лампа Neonail ",
       dropChance: 0,
     },
     {
-      text: "Наращивание БЕЗ форм",
-      dropChance: 0,
+      text: "Наращивание БЕЗ форм ",
+      dropChance: 0.235,
     },
     {
-      text: "СУПЕР ПРИЗ",
-      dropChance: 0,
+      text: "Бокс с лучшими материалами",
+      dropChance: 0.01,
     },
     {
-      text: "-----",
-      dropChance: 0,
+      text: "Урок по ПРИВЛЕЧЕНИЮ клиентов",
+      dropChance: 0.235,
     },
     {
-      text: "-----",
-      dropChance: 0,
-    },
-    {
-      text: "ЛЮБОЙ цветом за 10 минут",
-      dropChance: 0,
+      text: "CУПЕР ПРИЗ",
+      dropChance: 0.05,
     },
   ];
 
