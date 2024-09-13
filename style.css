@@ -131,6 +131,8 @@ body {
     0px 0px 1985.8px #b7954e, 0px 0px 992.898px #eebc70;
   border-radius: 50%;
 
+  background: #eebc70aa;
+
   -webkit-transform: translate(-50%, -50%);
 
   -ms-transform: translate(-50%, -50%);
@@ -840,7 +842,7 @@ body.is-spinning .wheel__spinner-container {
   }
 
   .popup__text {
-    width: 250px;
+    width: 290px;
     top: 84.5%;
   }
 }
