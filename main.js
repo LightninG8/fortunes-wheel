@@ -43,7 +43,7 @@
     },
     {
       text: "Лампа Neonail ",
-      dropChance: superPrizeAvailable > 0 ? 5 : 0,
+      dropChance: superPrizeAvailable > 0 ? 0.05 : 0,
     },
     {
       text: "Наращивание БЕЗ форм",
