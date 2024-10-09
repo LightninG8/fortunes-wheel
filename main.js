@@ -1,40 +1,4 @@
 (() => {
-  // список призов
-  const prizes = [
-    {
-      text: "ЛЮБОЙ цвет за 10 минут",
-      dropChance: 0.235,
-    },
-    {
-      text: "50 000₽",
-      dropChance: 0,
-    },
-    {
-      text: "Укрепление гелем СРАЗУ 4 ногтей",
-      dropChance: 0.235,
-    },
-    {
-      text: "Лампа Neonail ",
-      dropChance: 0,
-    },
-    {
-      text: "Наращивание БЕЗ форм",
-      dropChance: 0.235,
-    },
-    {
-      text: "Бокс с лучшими материалами",
-      dropChance: 0.001,
-    },
-    {
-      text: "Урок по ПРИВЛЕЧЕНИЮ клиентов",
-      dropChance: 0.235,
-    },
-    {
-      text: "CУПЕР ПРИЗ",
-      dropChance: 0.059,
-    },
-  ];
-
   // ---------- DOM элементы ----------
   const wheelSpinnerElem = document.querySelector(".wheel__spinner");
   const wheelSpinButtonElem = document.querySelector(".wheel__button_spin");
@@ -62,6 +26,42 @@
   let availableSpins = +urlParams.get("a") || 0;
   let dealSpins = +urlParams.get("d") || 0;
   let clientId = +urlParams.get("c") || 0;
+  const superPrizeAvailable = +urlParams.get("sp") || 0;
+   // список призов
+   const prizes = [
+    {
+      text: "ЛЮБОЙ цвет за 10 минут",
+      dropChance: 0.235,
+    },
+    {
+      text: "50 000₽",
+      dropChance: 0,
+    },
+    {
+      text: "Укрепление гелем СРАЗУ 4 ногтей",
+      dropChance: 0.235,
+    },
+    {
+      text: "Лампа Neonail ",
+      dropChance: superPrizeAvailable > 0 ? 5 : 0,
+    },
+    {
+      text: "Наращивание БЕЗ форм",
+      dropChance: 0.235,
+    },
+    {
+      text: "Бокс с лучшими материалами",
+      dropChance: 0.001,
+    },
+    {
+      text: "Урок по ПРИВЛЕЧЕНИЮ клиентов",
+      dropChance: 0.235,
+    },
+    {
+      text: "CУПЕР ПРИЗ",
+      dropChance: 0.059,
+    },
+  ];
 
   // ---------- Базовая настройка DOM элементов ----------
   // Выключаем ненужные кнопки
