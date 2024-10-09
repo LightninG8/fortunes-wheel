@@ -43,7 +43,7 @@
     },
     {
       text: "Лампа Neonail ",
-      dropChance: superPrizeAvailable > 0 ? 0.05 : 0,
+      dropChance: 0,
     },
     {
       text: "Наращивание БЕЗ форм",
@@ -51,7 +51,7 @@
     },
     {
       text: "Бокс с лучшими материалами",
-      dropChance: 0.001,
+      dropChance: superPrizeAvailable > 0 ? 0.10 : 0,
     },
     {
       text: "Урок по ПРИВЛЕЧЕНИЮ клиентов",
